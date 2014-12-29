@@ -36,6 +36,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->horizontalSlider,SIGNAL(valueChanged(int)),this,SLOT(changeEroded()));
     timer->setInterval(100);
     timer->start();
+	//custom graphic
+    ui->graphiccustom->updateSceneSize(background.width(),background.height());
+    ui->graphiccustom->resize(background.width()+2,background.height()+2);
+    ui->graphiccustom->setBackground(background);
+    ui->pushButton->setGeometry(QRect(background.width()+30, 20, ui->pushButton->width(), ui->pushButton->height()));
 }
 void MainWindow::videoUpdate(){
     cap>>frame;
